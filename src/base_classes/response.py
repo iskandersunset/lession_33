@@ -32,7 +32,7 @@ class Response:
 
     def __str__(self):
         return \
-            f"\nStatuse code: {self.response_status}\n" \
+            f"\nStatus code: {self.response_status}\n" \
             f"Request url: {self.response.url}\n" \
             f"Response body: {self.response_json}"
 
