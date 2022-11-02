@@ -25,10 +25,16 @@ class Response:
         """Assertion response status code."""
 
         if isinstance(status_code, list):
-            assert self.response_status in status_code, GlobalErrorMessages.WRONG_STATUS_CODE.value
+            assert self.response_status in status_code, self  # GlobalErrorMessages.WRONG_STATUS_CODE.value
         else:
-            assert self.response_status == status_code, GlobalErrorMessages.WRONG_STATUS_CODE.value
+            assert self.response_status == status_code, self  # GlobalErrorMessages.WRONG_STATUS_CODE.value
         return self
+
+    def __str__(self):
+        return \
+            f"\nStatuse code: {self.response_status}\n" \
+            f"Request url: {self.response.url}\n" \
+            f"Response body: {self.response_json}"
 
         # if isinstance(self.response_json, list):  # Без pydantic
         #     for item in self.response_json:
