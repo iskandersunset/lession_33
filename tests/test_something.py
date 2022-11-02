@@ -14,4 +14,3 @@ def test_getting_users_list(say_hello):
     response = requests.get(SERVICE_URL)
     test_object = Response(response)
     test_object.assert_status_code(200).validate(User)
-    print(response)
